@@ -325,7 +325,7 @@ body.nav-open .nav-toggle__bars::before { top: 0; transform: rotate(-90deg); }
 .hero__art .fg  { fill: var(--fg); }
 .hero__art stop,
 .hero__art path,
-.hero__art circle { transition: stop-color .15s ease, fill .15s ease; }
+.hero__art circle { transition: stop-color .9s ease, fill .9s ease; }
 
 /* Keeps white type readable in every light */
 .hero::after {
