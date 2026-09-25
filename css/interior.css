@@ -261,7 +261,7 @@
     max-width: 600px;     /* this IS the rendered text-column width */
     margin: 0;             /* cancels .container's margin-inline: auto */
     padding: 0;            /* cancels .container's padding-inline gutter */
-    margin-left: 4.5rem;  /* the actual left gap — tune this one number */
+    margin-left: clamp(3rem, 6vw, 7rem);  /* left gap: scales with screen width instead of one fixed number */
   }
 
   .container.prose > * {
@@ -291,4 +291,201 @@
 /* 2. Push page content below the fixed header instead of under it. */
 #main {
   padding-top: var(--header-h);
+}
+
+/* ==========================================================================
+   Wirecutter-style review furniture: byline, trust line, table of contents,
+   pull-quote. All scoped inside .container.prose so they inherit the same
+   600px / left-aligned column as the rest of the article automatically.
+   ========================================================================== */
+
+/* Byline + dateline row, sits right under the H1 / deck paragraph */
+.byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem .6rem;
+  margin-top: 1.1rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: .92rem;
+  color: var(--granite);
+}
+.byline strong { color: var(--spruce); font-weight: 650; }
+.byline .dot { opacity: .5; }
+
+/* "How we researched this" trust line — one sentence, sits right after the byline */
+.trust-line {
+  margin-top: .9rem !important;
+  padding: .9rem 1.1rem;
+  border-left: 3px solid var(--glow);
+  border-radius: 3px;
+  background: var(--lichen);
+  font-size: .95rem;
+  line-height: 1.55;
+  color: var(--granite);
+}
+.trust-line strong { color: var(--spruce); }
+
+/* Table of contents — for longer reviews, drop this after the deck paragraph */
+.toc {
+  margin-top: 2rem !important;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+}
+.toc__title {
+  margin-bottom: .6rem;
+  font-family: var(--font-display);
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--granite);
+}
+.toc ol {
+  list-style: decimal;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: .4rem;
+  font-family: var(--font-display);
+  font-size: .96rem;
+}
+.toc a {
+  color: var(--spruce);
+  text-decoration: none;
+  font-weight: 550;
+}
+.toc a:hover { text-decoration: underline; text-decoration-color: var(--glow); text-decoration-thickness: 2px; text-underline-offset: .2em; }
+
+/* Pull-quote — a standout stat or line, breaks the column briefly to draw the eye */
+.pull-quote {
+  margin: 2.25rem 0 !important;
+  padding: 0 0 0 1.25rem;
+  border-left: 3px solid var(--glow);
+  font-family: var(--font-text);
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.45;
+  color: var(--spruce);
+}
+.pull-quote cite {
+  display: block;
+  margin-top: .5rem;
+  font-style: normal;
+  font-family: var(--font-display);
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--granite);
+}
+
+/* ==========================================================================
+   Byline with author photo, italic dek paragraph, and a solid CTA/signup
+   box — matched from an actual Wirecutter article. Column width is left
+   at 600px (unchanged) — see chat note on why it wasn't widened to match.
+   ========================================================================== */
+
+/* Byline row: round photo + name/bio stack, replaces the plain-text version */
+.byline--photo {
+  display: flex;
+  align-items: flex-start;
+  gap: .9rem;
+  margin-top: 1.1rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+}
+.byline--photo img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: none;
+}
+.byline--photo__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--spruce);
+}
+.byline--photo__name a { color: inherit; text-decoration: underline; text-decoration-color: var(--glow); text-decoration-thickness: 2px; text-underline-offset: .2em; }
+.byline--photo__bio {
+  margin-top: .2rem;
+  font-size: .92rem;
+  line-height: 1.45;
+  color: var(--granite);
+}
+
+/* Dek: the italic lede paragraph right under the byline */
+.dek {
+  font-family: var(--font-text);
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--spruce);
+}
+
+/* Solid CTA box — e.g. newsletter signup, mid-article */
+.cta-box {
+  margin: 2.5rem 0 !important;
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  border-radius: var(--radius);
+  background: var(--spruce);
+  color: var(--snow);
+}
+.cta-box__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 108%;
+  font-size: clamp(1.4rem, 1.1rem + 1.2vw, 1.9rem);
+  line-height: 1.1;
+  margin-bottom: .7rem;
+}
+.cta-box__text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(243,246,242,.85);
+  margin-bottom: 1.25rem;
+}
+.cta-box__label {
+  display: block;
+  margin-bottom: .4rem;
+  font-family: var(--font-display);
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--glow-hi);
+}
+.cta-box__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+.cta-box__row input {
+  flex: 1 1 14rem;
+  min-height: 2.9rem;
+  padding: .6rem 1rem;
+  border: 2px solid rgba(255,255,255,.4);
+  border-radius: 3px;
+  background: rgba(255,255,255,.08);
+  color: #fff;
+}
+.cta-box__fine {
+  margin-top: .9rem;
+  font-size: .82rem;
+  line-height: 1.5;
+  color: rgba(243,246,242,.65);
+}
+.cta-box__fine a { color: inherit; text-decoration-color: var(--glow); }
+
+/* Fix: the "force #111 body text" rule from the column-width fix was
+   overpowering the CTA box's white text, since its specificity (.prose p)
+   beat the box's own classes. This raises the box's specificity to win. */
+.prose .cta-box p,
+.prose .cta-box .cta-box__title,
+.prose .cta-box .cta-box__text,
+.prose .cta-box .cta-box__fine {
+  color: inherit;
 }
