@@ -295,7 +295,10 @@
 
 /* ------------------------------------------------------------------
    EDITORIAL REVIEW LAYOUT
-   Narrow column, slightly left of center — magazine style
+   Matches Wirecutter proportions:
+   - Left gap:  ~16% of screen
+   - Article:   ~45% of screen (~720px)
+   - Right gap: ~39% of screen
    ------------------------------------------------------------------ */
 
 /* Editorial text treatment — black on light, magazine feel */
@@ -309,15 +312,37 @@
   color: #111;
 }
 
-/* Narrow column, slightly left of center */
-@media (min-width: 900px) {
+/* Editorial column — responsive, always left-leaning */
+@media (min-width: 1500px) {
   .band > .container.prose {
-    padding-left: 0;
+    padding-left: 16vw;
     max-width: none;
   }
   .prose {
-    max-width: 36rem;
-    margin-left: 12vw;
+    max-width: 45rem;
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1499px) {
+  .band > .container.prose {
+    padding-left: 12vw;
+    max-width: none;
+  }
+  .prose {
+    max-width: 42rem;
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+@media (min-width: 900px) and (max-width: 1199px) {
+  .band > .container.prose {
+    padding-left: 8vw;
+    max-width: none;
+  }
+  .prose {
+    max-width: 40rem;
+    margin-left: 0;
     margin-right: auto;
   }
 }
