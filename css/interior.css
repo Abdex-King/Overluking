@@ -277,6 +277,22 @@
 
 .prose__lede {
   font-size: 1.2rem;
+   .prose__hero {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+}
+.prose__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin: 1.5rem 0;
+}
   line-height: 1.6;
   color: var(--granite);
   margin-bottom: 1.5rem;
