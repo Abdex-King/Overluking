@@ -290,7 +290,7 @@ body.nav-open .nav-toggle__bars::before { top: 0; transform: rotate(-90deg); }
 .hero[data-light="day"] {
   --sky-top: #2F6C9B; --sky-mid: #8FC3DC; --sky-low: #E2F0EE;
   --sun: #FFFFFF;     --mist: #FFFFFF;
-  --r1: #B4CED6; --r2: #94B6C2 --r3: #6F9AA9; --r4: #4F7F8D; --r5: #356470;
+  --r1: #B4CED6; --r2: #94B6C2; --r3: #6F9AA9; --r4: #4F7F8D; --r5: #356470;
   --fg2: #244A4E; --fg: #10251F;
 }
 .hero[data-light="dusk"] {
@@ -760,7 +760,7 @@ body.nav-open .nav-toggle__bars::before { top: 0; transform: rotate(-90deg); }
   .trips__grid .trip:first-child { grid-column: 1 / -1; }
   .trips__grid .trip:first-child img { aspect-ratio: 16 / 8; }
   .tiles { grid-template-columns: repeat(2, 1fr); }
-  .site-footer__grid { grid-template-columns: 1.4fr repeat(3, 1fr); }
+  .site-footer__grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
   .site-footer__brand { grid-column: auto; }
   .signup { grid-template-columns: 1fr auto; }
   .signup__msg { grid-column: 1 / -1; }
