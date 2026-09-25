@@ -301,7 +301,30 @@
 @media (min-width: 900px) {
   .prose {
     max-width: 42rem;
+     /* Editorial review layout — magazine style */
+@media (min-width: 900px) {
+  .prose {
+    max-width: 34rem;
+    margin-left: 4rem;
+    margin-right: auto;
+  }
+}
+@media (min-width: 1200px) {
+  .prose {
+    margin-left: 8rem;
+  }
+}
     margin-left: 0;
     margin-right: auto;
   }
+}
+/* Editorial text treatment */
+.prose p,
+.prose li {
+  color: #000;
+  font-size: 1.15rem;
+  line-height: 1.75;
+}
+.prose blockquote {
+  color: #000;
 }
