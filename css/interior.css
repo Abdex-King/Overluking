@@ -38,6 +38,7 @@
 }
 .page-head--lost { background: var(--spruce); }
 
+/* Prose */
 .prose { max-width: 46rem; }
 .prose > * + * { margin-top: 1.15rem; }
 .prose h2 {
@@ -78,19 +79,17 @@
   color: var(--granite);
   margin-bottom: 1.5rem;
 }
+
+/* Image rules — no more cropping */
 .prose__hero {
   width: 100%;
   height: auto;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
   border-radius: var(--radius);
   margin-bottom: 2rem;
 }
 .prose__image {
   width: 100%;
   height: auto;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
   border-radius: var(--radius);
   margin: 1.5rem 0;
 }
@@ -244,9 +243,11 @@
 }
 
 /* ------------------------------------------------------------------
-   EDITORIAL REVIEW LAYOUT — narrow column, left-aligned
+   EDITORIAL REVIEW LAYOUT
+   Narrow column, left-aligned, images not cropped
    ------------------------------------------------------------------ */
 
+/* Black text on light */
 .prose p,
 .prose li {
   color: #111;
@@ -265,9 +266,11 @@
     padding-left: 4rem;
     padding-right: 2rem;
   }
-  /* Every direct child stays narrow — 28rem (~450px) */
+  /* Every direct child — 32rem wide, no margin auto, no centering */
   section.band > div.container.prose > * {
-    max-width: 28rem;
+    max-width: 32rem;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
