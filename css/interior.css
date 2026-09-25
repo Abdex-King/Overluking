@@ -80,7 +80,7 @@
   margin-bottom: 1.5rem;
 }
 
-/* Image rules — no cropping */
+/* Image rules — no more cropping */
 .prose__hero {
   width: 100%;
   height: auto;
@@ -243,7 +243,9 @@
 }
 
 /* ==========================================================================
-   Article body: narrow, left-aligned column (Wirecutter-style)
+   Article body: narrow, left-aligned reading column (Wirecutter-style)
+   Targets <div class="container prose"> — both classes on one element.
+   Replaces the old "EDITORIAL REVIEW LAYOUT" block below.
    ========================================================================== */
 
 .prose p,
@@ -256,32 +258,37 @@
 
 @media (min-width: 900px) {
   .container.prose {
-    max-width: 560px;
-    margin: 0;
-    padding: 0;
-    margin-left: clamp(2.5rem, 5vw, 4.5rem);
-    margin-right: auto;
+    max-width: 600px;     /* this IS the rendered text-column width */
+    margin: 0;             /* cancels .container's margin-inline: auto */
+    padding: 0;            /* cancels .container's padding-inline gutter */
+    margin-left: 4.5rem;  /* the actual left gap — tune this one number */
   }
-  .container.prose > * {
-    max-width: 100%;
-  }
-}
 
-/* Non-prose interior layouts (Contact, 404) */
-@media (min-width: 900px) {
+  .container.prose > * {
+    max-width: 100%;      /* every child just fills the 600px column */
+  }
+
   .contact-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); }
   .cta-strip { grid-template-columns: 1fr auto; }
 }
 
 /* ==========================================================================
-   Fixed header on interior pages
-   Prevents the transparent header from overlapping article content.
+   Fixed header: force solid on article/interior pages
+   The homepage hero is designed to sit *behind* a transparent header that
+   only turns solid after scrolling (see .site-header.is-solid in styles.css,
+   toggled by JS). Article pages have no full-bleed hero, so that same
+   transparent-until-scroll header was rendering directly on top of the
+   in-article hero image with nothing behind it but empty page background —
+   that's the "K G" fragment and floating nav you saw in the screenshot.
+   These two rules only exist in interior.css, so the homepage is untouched.
    ========================================================================== */
 
+/* 1. Header is always solid here — never transparent, never waits for scroll. */
 .site-header::before {
   opacity: 1 !important;
 }
 
+/* 2. Push page content below the fixed header instead of under it. */
 #main {
   padding-top: var(--header-h);
 }
