@@ -40,7 +40,6 @@
   margin-top: 1.75rem;
 }
 
-/* Lighter variant for softer pages (used on the 404) */
 .page-head--lost { background: var(--spruce); }
 
 /* Prose — long-form reading pages --------------------------------- */
@@ -87,6 +86,31 @@
   padding-top: 1.5rem;
   border-top: 1px solid var(--line);
   font-family: var(--font-display);
+}
+
+.prose__lede {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--granite);
+  margin-bottom: 1.5rem;
+}
+
+.prose__hero {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+}
+
+.prose__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin: 1.5rem 0;
 }
 
 /* Contact layout --------------------------------------------------- */
@@ -182,7 +206,6 @@
   gap: .75rem;
 }
 
-/* Ghost button variant that works on light backgrounds */
 .btn--ghost-dark {
   background: transparent;
   border-color: var(--spruce);
@@ -225,11 +248,6 @@
   line-height: 1.5;
 }
 
-/* Bigger screens --------------------------------------------------- */
-@media (min-width: 900px) {
-  .contact-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); }
-  .cta-strip { grid-template-columns: 1fr auto; }
-}
 /* Review page: verdict box and quotes ----------------------------- */
 .verdict-box {
   margin: 2.5rem 0;
@@ -275,77 +293,62 @@
   color: var(--granite);
 }
 
-.prose__lede {
-  font-size: 1.2rem;
-   .prose__hero {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  border-radius: var(--radius);
-  margin-bottom: 2rem;
-}
-.prose__image {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  border-radius: var(--radius);
-  margin: 1.5rem 0;
-}
-  line-height: 1.6;
-  color: var(--granite);
-  margin-bottom: 1.5rem;
-}
-/* Editorial layout — left-aligned like a magazine article */
-@media (min-width: 900px) {
-  .prose {
-    max-width: 42rem;
-     /* Editorial review layout — magazine style */
-@media (min-width: 900px) {
-  .prose {
-    max-width: 34rem;
-    margin-left: 4rem;
-    margin-right: auto;
-  }
-}
-@media (min-width: 1200px) {
-  .prose {
-    margin-left: 8rem;
-  }
-}
-    margin-left: 0;
-    margin-right: auto;
-  }
-}
-/* Editorial text treatment */
+/* ------------------------------------------------------------------
+   EDITORIAL REVIEW LAYOUT
+   Matches Wirecutter proportions:
+   - Left gap:  ~16% of screen
+   - Article:   ~45% of screen (~720px)
+   - Right gap: ~39% of screen
+   ------------------------------------------------------------------ */
+
+/* Editorial text treatment — black on light, magazine feel */
 .prose p,
 .prose li {
-  color: #000;
+  color: #111;
   font-size: 1.15rem;
   line-height: 1.75;
 }
 .prose blockquote {
-  color: #000;
+  color: #111;
 }
-/* Review page: article sits close to left edge, magazine style */
-@media (min-width: 900px) {
+
+/* Editorial column — responsive, always left-leaning */
+@media (min-width: 1500px) {
   .band > .container.prose {
-    max-width: none;
-    padding-left: 0;
-  }
-  .prose {
-    max-width: 36rem;
-    margin-left: clamp(1rem, 3vw, 3rem);
-    margin-right: auto;
-  }
-}
-@media (min-width: 1200px) {
-  .band > .container.prose {
-    padding-left: 15vw;
+    padding-left: 16vw;
     max-width: none;
   }
   .prose {
     max-width: 45rem;
+    margin-left: 0;
+    margin-right: auto;
   }
+}
+@media (min-width: 1200px) and (max-width: 1499px) {
+  .band > .container.prose {
+    padding-left: 12vw;
+    max-width: none;
+  }
+  .prose {
+    max-width: 42rem;
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+@media (min-width: 900px) and (max-width: 1199px) {
+  .band > .container.prose {
+    padding-left: 8vw;
+    max-width: none;
+  }
+  .prose {
+    max-width: 40rem;
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+/* Bigger screens — non-prose interior layouts ---------------------- */
+@media (min-width: 900px) {
+  .contact-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); }
+  .cta-strip { grid-template-columns: 1fr auto; }
 }
