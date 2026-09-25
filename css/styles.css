@@ -703,7 +703,90 @@ body.nav-open .nav-toggle__bars::before { top: 0; transform: rotate(-90deg); }
 .signup input:focus-visible { outline-offset: 2px; border-color: var(--glow); }
 .signup input[aria-invalid="true"] { border-color: #FF9C86; }
 .signup__msg { min-height: 1.5em; font-family: var(--font-display); font-size: .95rem; color: var(--glow-hi); }
+/* Disclosure strip */
+.disclosure-strip {
+  background: var(--lichen);
+  padding-block: 1rem;
+  text-align: center;
+}
+.disclosure-strip__inner p {
+  max-width: 48rem;
+  margin-inline: auto;
+  color: var(--granite);
+  font-size: .95rem;
+  line-height: 1.5;
+}
+.disclosure-strip a {
+  color: var(--spruce);
+  text-decoration: underline;
+  text-decoration-color: var(--glow);
+  text-decoration-thickness: 2px;
+  text-underline-offset: .25em;
+}
+.disclosure-strip a:hover { text-decoration-color: currentColor; }
 
+/* Start here */
+.start-here__grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+.start-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--spruce);
+  transition: border-color .2s, transform .2s;
+}
+.start-card:hover {
+  border-color: var(--spruce);
+  transform: translateY(-2px);
+}
+.start-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.start-card__body {
+  display: grid;
+  gap: .4rem;
+  padding: 1.25rem 1.35rem 1.5rem;
+}
+.start-card__eyebrow {
+  font-family: var(--font-display);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--glow);
+}
+.start-card h3 {
+  font-size: 1.35rem;
+  line-height: 1.15;
+}
+.start-card p {
+  color: var(--granite);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.start-card:hover h3 {
+  text-decoration: underline;
+  text-decoration-color: var(--glow);
+  text-decoration-thickness: 3px;
+  text-underline-offset: .15em;
+}
+
+@media (min-width: 640px) {
+  .start-here__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+  .start-here__grid { grid-template-columns: repeat(3, 1fr); }
+}
 /* 8. Footer ---------------------------------------------------------------- */
 .site-footer { background: var(--night); color: rgba(243,246,242,.75); padding-block: clamp(3rem, 6vw, 5rem) 2rem; }
 .site-footer a { text-decoration: none; }
