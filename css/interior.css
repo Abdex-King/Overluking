@@ -243,39 +243,27 @@
 }
 
 /* ------------------------------------------------------------------
-   EDITORIAL REVIEW LAYOUT
-   Narrow column, left-aligned, images not cropped
-   ------------------------------------------------------------------ */
+  /* ==========================================================================
+   Article body: narrow, left-aligned reading column (Wirecutter-style)
+   ========================================================================== */
 
-/* Black text on light */
 .prose p,
-.prose li {
+.prose li,
+.prose blockquote {
   color: #111;
   font-size: 1.15rem;
   line-height: 1.75;
 }
-.prose blockquote {
-  color: #111;
-}
 
 @media (min-width: 900px) {
-  /* Container stays full width, small left padding */
-  section.band > div.container.prose {
-    max-width: none;
+  .container.prose {
+    max-width: 560px;
     margin: 0;
-    padding-left: 4rem;
-    padding-right: 2rem;
+    padding: 0;
+    margin-left: clamp(2.5rem, 5vw, 4rem);
+    margin-right: auto;
   }
-  /* Every direct child — 32rem wide, no margin auto, no centering */
-  section.band > div.container.prose > * {
-    max-width: 32rem;
-    margin-left: 0;
-    margin-right: 0;
+  .container.prose > * {
+    max-width: 100%;
   }
-}
-
-/* Bigger screens */
-@media (min-width: 900px) {
-  .contact-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); }
-  .cta-strip { grid-template-columns: 1fr auto; }
 }
