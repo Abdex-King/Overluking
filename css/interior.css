@@ -328,3 +328,15 @@
 .prose blockquote {
   color: #000;
 }
+/* Review page: article sits close to left edge, magazine style */
+@media (min-width: 900px) {
+  .band > .container.prose {
+    max-width: none;
+    padding-left: 0;
+  }
+  .prose {
+    max-width: 36rem;
+    margin-left: clamp(1rem, 3vw, 3rem);
+    margin-right: auto;
+  }
+}
