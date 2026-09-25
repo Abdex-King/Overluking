@@ -708,7 +708,7 @@ body.nav-open .nav-toggle__bars::before { top: 0; transform: rotate(-90deg); }
 .site-footer { background: var(--night); color: rgba(243,246,242,.75); padding-block: clamp(3rem, 6vw, 5rem) 2rem; }
 .site-footer a { text-decoration: none; }
 .site-footer a:hover { color: var(--glow); }
-.site-footer__grid { display: grid; gap: 2.5rem 2rem; grid-template-columns: repeat(2, 1fr); }
+.site-footer__grid { display: grid; gap: 2.5rem 2rem; grid-template-columns: 1fr 1fr 1fr; }
 .site-footer__brand { grid-column: 1 / -1; }
 .site-footer__mark {
   color: #fff;
