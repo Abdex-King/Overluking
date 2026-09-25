@@ -297,3 +297,11 @@
   color: var(--granite);
   margin-bottom: 1.5rem;
 }
+/* Editorial layout — left-aligned like a magazine article */
+@media (min-width: 900px) {
+  .prose {
+    max-width: 42rem;
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
